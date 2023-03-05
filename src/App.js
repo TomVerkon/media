@@ -1,7 +1,9 @@
+import UsersList from "./components/UsersList";
+
 function App() {
   return (
-    <div className='container'>
-      The App
+    <div className='container mx-auto'>
+      <UsersList />
     </div>
   );
 }
