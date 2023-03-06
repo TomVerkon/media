@@ -21,15 +21,17 @@ function Skeleton({ times, className }) {
     'from-gray-200',
     'via-white',
     'to-gray-200'
-
   );
 
-  const boxes = Array(times).fill('').map((_, i) => {
-    return (
-      <div key={i} className={twMerge(outerClassNames)}>
-        <div className={twMerge(innerClassNames)} />
-      </div >);
-  });
+  const boxes = Array(times)
+    .fill('')
+    .map((_, i) => {
+      return (
+        <div key={i} className={twMerge(outerClassNames)}>
+          <div className={twMerge(innerClassNames)} />
+        </div >);
+    });
+
   return boxes;
 }
 

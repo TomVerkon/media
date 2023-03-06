@@ -5,14 +5,24 @@
       "name": "Kent Schuppe"
     },
     {
-      "id": "MAgZCChW2R9hTpwL5LXus",
-      "name": "Jeanne DuBuque"
+      "id": "1srFF5OAPBllGJp8LbvrA",
+      "name": "Dr. Robert Watsica"
     },
     {
-      "id": "yvQJcA9vLuCSju2o_vks2",
-      "name": "Clint Walsh"
+      "id": "GRwRCY1-XK5cfViK_ZBN8",
+      "name": "Enrique Ward"
+    },
+    {
+      "id": "dVF4dxgJA8CyBNTQdLksR",
+      "name": "Bryan Zulauf"
     }
   ],
-  "albums": [],
+  "albums": [
+    {
+      "id": "10",
+      "title": "Hiking Trip",
+      "userId": "C0-Y_g_i0EIu1pL9L16-E"
+    }
+  ],
   "photos": []
 }

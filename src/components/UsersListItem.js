@@ -1,27 +1,31 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { removeUser } from '../store';
 import { useThunk } from '../hooks/use-thunk';
-import { IoRemoveCircle } from 'react-icons/io5';
+import { GoTrashcan } from 'react-icons/go';
 import Button from './Button';
+import ExpandablePanel from './ExpandablePanel';
+import AlbumsList from './AlbumsList';
+import ErrorBoundary from './ErrorBoundry';
 
 const UsersListItem = ({ user }) => {
   const [doRemoveUser, isLoading, error] = useThunk(removeUser);
 
-  const handleRemoveUser = () => {
-    doRemoveUser(user);
-  };
+  const handleRemoveUser = () => doRemoveUser(user);
+
+  const header = <Fragment>
+    <Button danger className="mr-3" onClick={handleRemoveUser} loading={isLoading}>
+      <GoTrashcan />
+    </Button>
+    {error && <div>Error deleting user.</div>}
+    {user.name}
+  </Fragment>;
 
   return (
-    < div className="mb-2 rounded border ml-3 mr-3" >
-      <div className="flex p-2 justify-between items-center cursor-pointer">
-        <div className="flex flex-row items-center justify-between">
-          <Button danger onClick={handleRemoveUser} loading={isLoading}>
-            <IoRemoveCircle />
-          </Button>
-          {user.name}
-        </div>
-      </div>
-    </div >
+    <ExpandablePanel header={header}>
+      <ErrorBoundary fallback={<p>Something went wrong</p>}>
+        <AlbumsList user={user} />
+      </ErrorBoundary>
+    </ExpandablePanel>
   );
 };
 
