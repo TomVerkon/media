@@ -3,26 +3,40 @@
     {
       "id": "C0-Y_g_i0EIu1pL9L16-E",
       "name": "Kent Schuppe"
-    },
-    {
-      "id": "1srFF5OAPBllGJp8LbvrA",
-      "name": "Dr. Robert Watsica"
-    },
-    {
-      "id": "GRwRCY1-XK5cfViK_ZBN8",
-      "name": "Enrique Ward"
-    },
-    {
-      "id": "dVF4dxgJA8CyBNTQdLksR",
-      "name": "Bryan Zulauf"
     }
   ],
   "albums": [
     {
-      "id": "10",
-      "title": "Hiking Trip",
-      "userId": "C0-Y_g_i0EIu1pL9L16-E"
+      "userId": "C0-Y_g_i0EIu1pL9L16-E",
+      "title": "Gorgeous Frozen Keyboard",
+      "id": "RdBfNhh"
+    },
+    {
+      "userId": "C0-Y_g_i0EIu1pL9L16-E",
+      "title": "Fantastic Granite Computer",
+      "id": "im6Ohol"
     }
   ],
-  "photos": []
+  "photos": [
+    {
+      "albumId": "RdBfNhh",
+      "url": "https://loremflickr.com/150/150/abstract?lock=93132",
+      "id": 7
+    },
+    {
+      "albumId": "RdBfNhh",
+      "url": "https://loremflickr.com/150/150/abstract?lock=89546",
+      "id": 8
+    },
+    {
+      "albumId": "RdBfNhh",
+      "url": "https://loremflickr.com/150/150/abstract?lock=25119",
+      "id": 9
+    },
+    {
+      "albumId": "RdBfNhh",
+      "url": "https://loremflickr.com/150/150/abstract?lock=20622",
+      "id": 10
+    }
+  ]
 }

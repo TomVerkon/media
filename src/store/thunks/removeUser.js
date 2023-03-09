@@ -1,24 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { pause } from '../utility';
 
 const removeUser = createAsyncThunk(
   'users/remove',
   async (user) => {
     console.log('user id: ', user.id);
-    await axios.delete(`http://localhost:3005/users/${user.id}`);
+    await axios.delete(process.env.REACT_APP_BASE_URL + `/users/${user.id}`);
 
     // Dev only
-    await pause(500);
+    await pause();
 
     return user;
   }
 );
-
-// Dev Only
-const pause = (duration) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, duration);
-  });
-};
 
 export { removeUser };;

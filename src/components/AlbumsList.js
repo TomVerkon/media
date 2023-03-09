@@ -1,28 +1,38 @@
 import React from 'react';
-import { useFetchAlbumsQuery } from '../store';
+import {
+  useFetchAlbumsQuery,
+  useAddAlbumMutation,
+} from '../store';
 import Skeleton from './Skeleton';
+import Button from './Button';
+import AlbumsListItem from './AlbumsListItem';
 
 export default function AlbumsList({ user }) {
-  const { data, error, isLoading } = useFetchAlbumsQuery(user);
-  //console.log(user);
-  console.log(data, error, isLoading);
+  const { data, error, isFetching } = useFetchAlbumsQuery(user);
+  const [addAlbum, results] = useAddAlbumMutation();
+
+  const handleAddAlbum = () => {
+    addAlbum(user);
+  };
 
   let content = '';
-  if (isLoading) {
-    content = <Skeleton times={2} className="h-10 w-full" />;
+  if (isFetching) {
+    content = <Skeleton className="h-10 w-full" times={3} />;
   } else if (error) {
     content = <div>{error.message}</div>;
-  } else if (!isLoading) {
+  } else if (!isFetching) {
     content = data.map((album) => {
-      return < div key={album.id}> {album.title}</div >;
+      return <AlbumsListItem key={album.id} album={album} />;
     });
   }
 
-
   return (
     <div>
-      Albums for {user.name}
-      {content}
+      <div className="m-3 flex flex-row items-center justify-between">
+        <h3 className="text-lg font-bold">Albums for {user.name}</h3>
+        <Button success loading={isFetching || results.isLoading} onClick={handleAddAlbum}>+ Add Album</Button>
+      </div>
+      <div>{content}</div>
     </div>
   );
 };

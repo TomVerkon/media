@@ -1,27 +1,20 @@
 import { createAsyncThunk, nanoid } from "@reduxjs/toolkit";
 import axios from 'axios';
 import { faker } from '@faker-js/faker';
+import { pause } from "../utility";
 
 
 const addUser = createAsyncThunk('user/add', async () => {
 
-  const response = await axios.post('http://localhost:3005/users', {
+  const response = await axios.post(process.env.REACT_APP_BASE_URL + '/users', {
     "id": nanoid(),
     "name": faker.name.fullName()
   });
 
   // Dev only
-  //await pause(500);
+  await pause();
 
   return response.data;
 });
-
-// Dev Only
-const pause = (duration) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, duration);
-  });
-};
-
 
 export { addUser };
